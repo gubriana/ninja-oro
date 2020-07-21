@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-image">
-      <button @click="generarPuntaje" class="btn-floating halfway-fab waves-effect waves-light #fdd835 yellow darken-1 pulse "><i class="material-icons">add</i></button>
+      <button @click="generarPuntaje" class="btn-floating halfway-fab waves-effect waves-light #fdd835 yellow darken-1 pulse "><i class="material-icons">{{icono}}</i></button>
     </div>
     <div class="card-content">
       <h4>{{titulo}}</h4>
@@ -18,8 +18,8 @@ export default {
   props: {
     titulo: String,
     min: Number,
-    max: Number
-
+    max: Number,
+    icono: String
   },
   methods: {
     generarPuntaje() {
