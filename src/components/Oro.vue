@@ -39,7 +39,7 @@ export default {
       // agregar nueva actividad
       storeOro.agregar_actividades(
         // si gana
-        'Ganaste '  +  puntajeOro + " desde " + this.titulo + " a las " + momento
+        `${puntajeOro < 0 ? "Perdiste" : "Ganaste"} ${puntajeOro} desde ${this.titulo} a las ${momento}`
         // si pierde
       );
     }
