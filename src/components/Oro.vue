@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-image">
-      <button @click="generarPuntaje" class="btn-floating halfway-fab waves-effect waves-light #fdd835 yellow darken-1 pulse "><i class="material-icons">{{icono}}</i></button>
+      <button @click="generarPuntaje" class="btn-floating halfway-fab waves-effect waves-light yellow darken-1 btn tooltipped" data-position="top" data-tooltip="Click para buscar oro "><i class="material-icons">{{icono}}</i></button>
     </div>
     <div class="card-content">
       <h4>{{titulo}}</h4>
@@ -11,7 +11,8 @@
 </template>
 <script>
 
-import storeOro from '../storeOro.js';
+import storeOro from '../storeOro.js'
+import M from 'materialize-css'
 
 export default {
   name: 'Oro',
@@ -38,13 +39,25 @@ export default {
       const momento = hour + ":" + minutes + " - " + day + "." + month + "." + year;
       // agregar nueva actividad
       storeOro.agregar_actividades(
-        // si gana
         `${puntajeOro < 0 ? "Perdiste" : "Ganaste"} ${puntajeOro} desde ${this.titulo} a las ${momento}`
-        // si pierde
       );
     }
+  },
+  mounted: function() {
+      var elems = document.querySelectorAll('.tooltipped');
+      M.Tooltip.init(elems, {});
   }
-}
+  /*
+  <ul class="list-group list-group-flush">
+  <li class="list-group-item" v-for="(activity, i) in activities" v-bind:key="i">{{ activity }}
+  <span class="close" @click="$delete(activities, i)">x</span></li>
+  </ul>
+  PONER IMAGEN
+  img :src="require('@/assets/img/' + pic + '.jpg')"
+  img: String
+  EN EL PADRE INTEGRAR
+  */
+}   
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
