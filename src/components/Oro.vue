@@ -5,11 +5,13 @@
     </div>
     <div class="card-content">
       <h4>{{titulo}}</h4>
-      <p>Ganar entre {{min}} y {{max}} </p>
+      <p>Ganar entre {{min}} y {{max}}</p>
     </div>
   </div>
 </template>
 <script>
+
+import storeOro from '../storeOro.js';
 
 export default {
   name: 'Oro',
@@ -17,6 +19,19 @@ export default {
     titulo: String,
     min: Number,
     max: Number
+  },
+  methods: {
+    generarPuntaje() {
+      //generar número al azar entre min y max
+      const puntajeOro = Math.round(Math.random() * (this.max - this.min) + this.min);
+      console.log(puntajeOro);
+      // Se guarda numero generado en el almacén
+      storeOro.sumar_oro(puntajeOro);
+      // agregar nueva actividad
+      storeOro.agregar_actividades(
+        "Usted ganó " +  puntajeOro + " desde " + this.titulo
+      )
+    }
   }
 }
 </script>
