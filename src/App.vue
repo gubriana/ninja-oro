@@ -26,13 +26,12 @@
         <div class="col s3">
           <Oro titulo="CASINO" :min="-50" :max="50"/>
         </div>
-
         <div class="col s12">
           <div class="card">
             <div class="card-content">
               <span class="card-title">Actividades</span>
             <div class="card-action">
-              <p v-for="(actividad,i) in actividades" v-bind:key="i" >{{actividad}}</p>
+              <p v-for="(actividad,i) in actividades" v-bind:key="i" class="borderline">{{actividad}}</p>
             </div>
             </div>
           </div>
