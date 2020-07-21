@@ -8,13 +8,14 @@ export default {
     sumar_oro(puntajeOro) {
         this.state.Oro_Total = this.state.Oro_Total + puntajeOro;        
     },
+    agregar_actividades(actividad) {
+        this.state.actividades=[...this.state.actividades,actividad];
+    },
+    // extra
     reset_oro_total(){
         this.state.Oro_Total = 0;  
     },
     duplicar_oro_total() {
         this.state.Oro_Total = this.state.Oro_Total * 2;  
-    },
-    agregar_actividades(actividad) {
-        this.state.actividades.push(actividad)
     }
   }

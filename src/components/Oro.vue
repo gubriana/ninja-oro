@@ -30,17 +30,17 @@ export default {
       storeOro.sumar_oro(puntajeOro);
       // definir fecha y hora
       let dateObj = new Date();
-
       let hour = dateObj.getHours();
       let minutes = dateObj.getMinutes();
       let month = dateObj.getMonth() + 1; //months from 1-12
       let day = dateObj.getDate();
       let year = dateObj.getFullYear();
-
       const momento = hour + ":" + minutes + " - " + day + "." + month + "." + year;
       // agregar nueva actividad
       storeOro.agregar_actividades(
-        "Usted ganó " +  puntajeOro + " desde " + this.titulo + " a las " + momento
+        // si gana
+        'Ganaste '  +  puntajeOro + " desde " + this.titulo + " a las " + momento
+        // si pierde
       );
     }
   }
