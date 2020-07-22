@@ -30,9 +30,11 @@
           <div class="card">
             <div class="card-content">
               <span class="card-title">Actividades</span>
-            <div class="card-action">
-              <p v-for="(actividad,i) in actividades" v-bind:key="i" class="borderline">{{actividad}}</p>
-            </div>
+              <div class="card-action">
+                <p v-for="(actividad,i) in actividades" v-bind:key="i" class="borderline">{{actividad}}</p>
+              </div>
+              <br>
+              <Reset />
             </div>
           </div>
         </div>
@@ -44,12 +46,14 @@
 
 <script>
 import Oro from './components/Oro.vue'
+import Reset from './components/Reset.vue'
 import storeOro from './storeOro.js'
 
 export default {
   name: 'App',
   components: {
-    Oro
+    Oro,
+    Reset
   },
   data() {
     return  storeOro.state
@@ -65,5 +69,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.btn-block {
+    width: 100%;
 }
 </style>

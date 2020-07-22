@@ -11,11 +11,12 @@ export default {
     agregar_actividades(actividad) {
         this.state.actividades=[...this.state.actividades,actividad];
     },
+    // borrar actividades
+    reset_actividades() {
+        this.state.actividades=[];
+    },
     // extra
     reset_oro_total(){
         this.state.Oro_Total = 0;  
-    },
-    duplicar_oro_total() {
-        this.state.Oro_Total = this.state.Oro_Total * 2;  
     }
   }
