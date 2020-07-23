@@ -11,11 +11,16 @@ export default {
   methods: {
     resetPuntaje() {
       const respuesta = confirm('¿Estás seguro que quieres resetear todo y perder toooodo tu oro?');
-      respuesta();
-      storeOro.reset_actividades();
-      storeOro.reset_oro_total();
+      if (respuesta){
+        storeOro.reset_actividades();
+        storeOro.reset_oro_total();
+      }
     }
   },
+
+
+
+
   mounted: function() {
       var elems = document.querySelectorAll('.tooltipped');
       M.Tooltip.init(elems, {});
