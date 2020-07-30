@@ -1,5 +1,5 @@
 <template>
-  <button class="waves-effect waves-light btn-large btn-block grey light-text" @click="resetPuntaje">Resetear todo</button>
+  <button class="btn-large btn-block grey light-text" @click="resetPuntaje">Resetear todo</button>
 </template>
 <script>
 
@@ -17,10 +17,6 @@ export default {
       }
     }
   },
-
-
-
-
   mounted: function() {
       var elems = document.querySelectorAll('.tooltipped');
       M.Tooltip.init(elems, {});

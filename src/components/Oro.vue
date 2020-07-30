@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-image">
-      <button @click="generarPuntaje" class="btn-floating halfway-fab waves-effect waves-light yellow darken-1 btn tooltipped" data-position="top" data-tooltip="Click para buscar oro "><i class="material-icons">{{icono}}</i></button>
+      <button @click="generarPuntaje" class="btn-floating halfway-fab yellow darken-1 btn tooltipped" data-position="top" data-tooltip="Click para buscar oro "><i class="material-icons">{{icono}}</i></button>
     </div>
     <div class="card-content">
       <h4>{{titulo}}</h4>
@@ -39,7 +39,7 @@ export default {
       const momento = hour + ":" + minutes + " - " + day + "." + month + "." + year;
       // agregar nueva actividad
       storeOro.agregar_actividades(
-        `${puntajeOro < 0 ? "Perdiste" : "Ganaste"} ${puntajeOro} desde ${this.titulo} a las ${momento}`
+      `${puntajeOro < 0 ? "Perdiste" : "Ganaste"} ${puntajeOro} desde ${this.titulo} a las ${momento}`
       );
     }
   },
