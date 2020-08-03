@@ -31,7 +31,7 @@
             <div class="card-content">
               <span class="card-title">Actividades</span>
               <div class="card-action">
-                <p v-for="(actividad,i) in actividades" v-bind:key="i" class="borderline">{{actividad}}</p>
+                <p :class="{verde: actividad.puntaje > 0, rojo: actividad.puntaje < 0}" v-for="(actividad,i) in actividades" v-bind:key="i">{{actividad.texto}}</p>
               </div>
               <br>
               <Reset />
@@ -72,5 +72,11 @@ export default {
 }
 .btn-block {
     width: 100%;
+}
+.rojo {
+  color: red;
+}
+.verde {
+  color: green;
 }
 </style>

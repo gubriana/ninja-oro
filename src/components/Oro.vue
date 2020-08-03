@@ -38,9 +38,10 @@ export default {
       let year = dateObj.getFullYear();
       const momento = hour + ":" + minutes + " - " + day + "." + month + "." + year;
       // agregar nueva actividad
-      storeOro.agregar_actividades(
-      `${puntajeOro < 0 ? "Perdiste" : "Ganaste"} ${puntajeOro} desde ${this.titulo} a las ${momento}`
-      );
+      storeOro.agregar_actividades({
+        texto: `${puntajeOro < 0 ? "Perdiste" : "Ganaste"} ${puntajeOro} desde ${this.titulo} a las ${momento}`,
+        puntaje: puntajeOro
+      });
     }
   },
   mounted: function() {
