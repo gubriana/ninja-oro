@@ -62,7 +62,6 @@ export default {
       return this.$store.state.actividades;
     }
   }
-
 }
 </script>
 
