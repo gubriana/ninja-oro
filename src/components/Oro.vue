@@ -10,8 +10,6 @@
   </div>
 </template>
 <script>
-
-import storeOro from '../storeOro.js'
 import M from 'materialize-css'
 
 export default {
@@ -27,8 +25,10 @@ export default {
       //generar número al azar entre min y max
       const puntajeOro = Math.round(Math.random() * (this.max - this.min) + this.min);
       console.log(puntajeOro);
-      // Se guarda numero generado en el almacén
-      storeOro.sumar_oro(puntajeOro);
+      
+      //esta es mi versión de mutuaciones y oro, se supone que esto debe ir al main store
+      this.$store.commit("guardarOro", puntajeOro);
+
       // definir fecha y hora
       let dateObj = new Date();
       let hour = dateObj.getHours();
@@ -37,13 +37,16 @@ export default {
       let day = dateObj.getDate();
       let year = dateObj.getFullYear();
       const momento = hour + ":" + minutes + " - " + day + "." + month + "." + year;
+
       // agregar nueva actividad
-      storeOro.agregar_actividades({
+      this.$store.commit('agregarActividad', {
         texto: `${puntajeOro < 0 ? "Perdiste" : "Ganaste"} ${puntajeOro} desde ${this.titulo} a las ${momento}`,
         puntaje: puntajeOro
       });
     }
   },
+
+  
   mounted: function() {
       var elems = document.querySelectorAll('.tooltipped');
       M.Tooltip.init(elems, {});
@@ -60,7 +63,5 @@ export default {
   */
 }   
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>

@@ -47,7 +47,6 @@
 <script>
 import Oro from './components/Oro.vue'
 import Reset from './components/Reset.vue'
-import storeOro from './storeOro.js'
 
 export default {
   name: 'App',
@@ -55,9 +54,15 @@ export default {
     Oro,
     Reset
   },
-  data() {
-    return  storeOro.state
-  },
+  computed: {
+    Oro_Total(){
+      return this.$store.state.puntajeOro;
+    },
+    actividades(){
+      return this.$store.state.actividades;
+    }
+  }
+
 }
 </script>
 
